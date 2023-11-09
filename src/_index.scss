@@ -10,11 +10,12 @@ body {
 .examples {
   display: flex;
   margin: 1rem;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
 .examples > * {
   flex: 0 0 30%;
   min-height: 50vh;
   box-shadow: 0 0 8px 2px $ui-01;
+  padding: 40px;
 }
