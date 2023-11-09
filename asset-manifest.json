@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/c4ai-carbon-10-poc/static/css/main.bab0140a.css",
-    "main.js": "/c4ai-carbon-10-poc/static/js/main.bbce6251.js",
+    "main.js": "/c4ai-carbon-10-poc/static/js/main.04db963e.js",
     "index.html": "/c4ai-carbon-10-poc/index.html",
     "main.bab0140a.css.map": "/c4ai-carbon-10-poc/static/css/main.bab0140a.css.map",
-    "main.bbce6251.js.map": "/c4ai-carbon-10-poc/static/js/main.bbce6251.js.map"
+    "main.04db963e.js.map": "/c4ai-carbon-10-poc/static/js/main.04db963e.js.map"
   },
   "entrypoints": [
     "static/css/main.bab0140a.css",
-    "static/js/main.bbce6251.js"
+    "static/js/main.04db963e.js"
   ]
 }
