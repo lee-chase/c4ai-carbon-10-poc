@@ -16,6 +16,7 @@ import CDSListItem from '@carbon/web-components/es/components-react/list/list-it
 import CDSButton from '@carbon/web-components/es/components-react/button/button.js';
 import CDSCheckbox from '@carbon/web-components/es/components-react/checkbox/checkbox.js';
 import CDSFileUploader from '@carbon/web-components/es/components-react/file-uploader/file-uploader.js';
+import CDSFileUploaderButton from '@carbon/web-components/es/components-react/file-uploader/file-uploader-button.js';
 import CDSFormGroup from '@carbon/web-components/es/components-react/form-group/form-group.js';
 import CDSNumberInput from '@carbon/web-components/es/components-react/number-input/number-input.js';
 import CDSRadioButton from '@carbon/web-components/es/components-react/radio-button/radio-button.js';
@@ -63,6 +64,8 @@ export const ExampleCWC = () => {
 
   const toggleProps = {
     class: 'some-class',
+    'label-a': 'Off label a',
+    'label-b': 'On label b',
   };
 
   const fieldsetToggleProps = {
@@ -71,7 +74,7 @@ export const ExampleCWC = () => {
   };
 
   const fileUploaderEvents = {
-    'button-label': 'Add files',
+    'label-text': 'Add files',
     class: 'some-class',
   };
 
@@ -105,27 +108,27 @@ export const ExampleCWC = () => {
   const TextInputProps = {
     class: 'some-class',
     id: 'test2',
-    'label-text': 'Text Input label',
+    label: 'Text Input label',
     placeholder: 'Placeholder text',
   };
 
   const PasswordProps = {
     class: 'some-class',
     id: 'test3',
-    'label-text': 'Password',
+    label: 'Password',
   };
 
   const InvalidPasswordProps = {
     class: 'some-class',
     id: 'test4',
-    'label-text': 'Password',
+    label: 'Password',
     invalid: true,
-    invalidText:
+    'invalid-text':
       'Your password must be at least 6 characters as well as contain at least one uppercase, one lowercase, and one number.',
   };
 
   const textareaProps = {
-    'label-text': 'Text Area label',
+    label: 'Text Area label',
     class: 'some-class',
     placeholder: 'Placeholder text',
     id: 'test5',
@@ -157,11 +160,11 @@ export const ExampleCWC = () => {
           </CDSFormGroup>
 
           <CDSFormGroup {...fieldsetFileUploaderProps}>
-            <CDSFileUploader
-              {...fileUploaderEvents}
-              id='file-1'
-              labelDescription='Choose Files...'
-            />
+            <CDSFileUploader id='file-1' label-description='Choose Files...'>
+              <CDSFileUploaderButton class={fileUploaderEvents.class}>
+                {fileUploaderEvents['label-text']}
+              </CDSFileUploaderButton>
+            </CDSFileUploader>
           </CDSFormGroup>
 
           <CDSFormGroup {...fieldsetRadioProps}>
@@ -199,28 +202,18 @@ export const ExampleCWC = () => {
           </CDSFormGroup>
 
           <CDSFormGroup {...fieldsetSearchProps}>
-            <CDSSearch
-              {...searchProps}
-              id='search-1'
-              label-text='Search'
-              placeholder='Search'
-            />
+            <CDSSearch {...searchProps} id='search-1' placeholder='Search'>
+              <div slot='label-text'>Search asdf</div>
+            </CDSSearch>
           </CDSFormGroup>
 
-          <CDSSelect
-            {...selectProps}
-            id='select-1'
-            defaultValue='placeholder-item'
-          >
-            <CDSSelectItem
-              disabled
-              hidden
-              value='placeholder-item'
-              text='Choose an option'
-            />
-            <CDSSelectItem value='option-1' text='Option 1' />
-            <CDSSelectItem value='option-2' text='Option 2' />
-            <CDSSelectItem value='option-3' text='Option 3' />
+          <CDSSelect {...selectProps} id='select-1' value='placeholder-item'>
+            <CDSSelectItem disabled hidden value='placeholder-item'>
+              Choose an option
+            </CDSSelectItem>
+            <CDSSelectItem value='option-1'>Option 1</CDSSelectItem>
+            <CDSSelectItem value='option-2'>Option 2</CDSSelectItem>
+            <CDSSelectItem value='option-3'>Option 3</CDSSelectItem>
           </CDSSelect>
 
           <CDSTextInput {...TextInputProps} />
@@ -244,6 +237,8 @@ export const ExampleCWC = () => {
           <CDSButton type='submit' className='some-class' {...buttonEvents}>
             Submit
           </CDSButton>
+
+          <br />
 
           <CDSDropdown value='none'>
             <div slot='title-text'>This is a slotted title *1</div>
@@ -272,9 +267,16 @@ export const ExampleCWC = () => {
         </CDSListItem>
         <CDSListItem class='warning'>
           &gt;Named slots are not used in React normally. So NOT as simple as
-          swapping Carbon/React for Carbon/WebComponetn
+          swapping Carbon/React for Carbon/WebComponent.
+        </CDSListItem>
+        <CDSListItem class='warning'>
+          &gt;In some cases a slot is used instead of an property.
         </CDSListItem>
         <CDSListItem class='warning'>&gt;Hyphenated property names</CDSListItem>
+        <CDSListItem class='warning'>
+          &gt;Some props may have different defaults (label-a, label-b checkbox
+          blank by default)
+        </CDSListItem>
         <CDSListItem>&gt;There is no CDSForm</CDSListItem>
       </CDSOrderedList>
     </div>
