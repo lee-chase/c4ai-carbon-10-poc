@@ -1,176 +1,56 @@
-# Getting Started with Create React App
+# Carbon 10 + Web Components 2 POC
 
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+This project attempts to verify questions found in this issue
 
-## Steps to create this example
+https://github.com/carbon-design-system/carbon-for-ai/issues/23
 
-1. npx create-react-app ccs-base-react-17
-2. yarn add @carbon/ibm-products
-3. Install carbon-components-react as per that packages instructions
-   <https://www.npmjs.com/package/carbon-components-react>
-4. Install @carbon/icons-react as per package instructions
-   <https://www.npmjs.com/package/@carbon/icons-react>
-5. Install @carbon/elements as per package instructions
-   <https://www.npmjs.com/package/@carbon/elements>
-6. Clear out `src/index.css` and `src/App.css`
-7. Replace `import './index.css';` with
-   `import '@carbon/ibm-products/css/index-full-carbon.min.css';` in
-   `src/index.js`
-8. Add an example asset `src/assets/example-logo.svg`.
-9. Replace the contents of App.js with
+## Steps to create
 
-```jsx
-import './App.css';
+1. Copy ibm-products-v1 example for React 17
 
-import { useState } from 'react';
+## ToDo
 
-import { AboutModal } from '@carbon/ibm-products';
-import { Button, Link } from 'carbon-components-react';
+1. Pad out the example with
+   1. Global header
+   2. Add a Carbon 10 form
+2. Add Carbon WebComponent V2 form.
+3. Test changing the prefix
+4. Test theming
 
-import ExampleLogo from './assets/example-logo.svg';
+## Other issues to look into
 
-const App = () => {
-  const [open, setOpen] = useState(false);
+1. Evaluate Carbon WebComponents that have named slots as there are A11y issues in cases where a wrapper element is problematic.
+  https://lit.dev/docs/frameworks/react/#using-slots
 
-  return (
-    <>
-      <Button onClick={() => setOpen(true)}>Show AboutModal</Button>
-      <AboutModal
-        additionalInfo={[{ label: 'Version number', content: '1.3.41' }]}
-        content={
-          <>
-            This is an example of the AboutModal from the Carbon for IBM
-            Products component library. The library is designed and built on top
-            of the Carbon Design System and Carbon Components React.
-          </>
-        }
-        copyrightText={<>Copyright &copy; 2020 IBM corporation</>}
-        links={[
-          <Link href="https://ibm-products.netlify.app/" key="View storybook">
-            View the components
-          </Link>,
-          <Link
-            href="https://github.com/carbon-design-system/ibm-products/blob/main/LICENSE"
-            key="link2"
-          >
-            License
-          </Link>,
-          <Link
-            href="https://www.npmjs.com/package/@carbon/ibm-products"
-            key="npm"
-          >
-            Install from npm
-          </Link>,
-          <Link href="https://www.carbondesignsystem.com/" key="Carbon">
-            Carbon Design System
-          </Link>,
-        ]}
-        logo={
-          <img
-            src={ExampleLogo}
-            alt="Example product or service logo"
-            style={{ maxWidth: '6rem' }}
-          />
-        }
-        title={
-          <>
-            IBM <span style={{ fontWeight: '600' }}>Products components</span>
-          </>
-        }
-        onClose={() => setOpen(false)}
-        open={open}
-      />
-    </>
-  );
-};
+  On Nov 9th 2023 the following Carbon WebComponents can be seen to include the code `<slot name` indicating use of a named slot.
+  53 results - 29 files
 
-export default App;
-```
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best
-performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
-
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+packages/carbon-web-components/src/components/accordion/accordion-item.ts:
+packages/carbon-web-components/src/components/breadcrumb/breadcrumb-overflow-menu.ts:
+packages/carbon-web-components/src/components/button/button.ts:
+packages/carbon-web-components/src/components/content-switcher/content-switcher-item.ts:
+packages/carbon-web-components/src/components/copy/copy.ts:
+packages/carbon-web-components/src/components/data-table/table-batch-actions.ts:
+packages/carbon-web-components/src/components/data-table/table.ts:
+packages/carbon-web-components/src/components/date-picker/date-picker-input.ts:
+packages/carbon-web-components/src/components/dropdown/dropdown.ts:
+packages/carbon-web-components/src/components/file-uploader/file-uploader.ts:
+packages/carbon-web-components/src/components/icon-button/icon-button.ts:
+packages/carbon-web-components/src/components/link/link.ts:
+packages/carbon-web-components/src/components/list/list-item.ts:
+packages/carbon-web-components/src/components/multi-select/multi-select.ts:
+packages/carbon-web-components/src/components/notification/actionable-notification.ts:
+packages/carbon-web-components/src/components/notification/inline-notification.ts:
+packages/carbon-web-components/src/components/notification/toast-notification.ts:
+packages/carbon-web-components/src/components/number-input/number-input.ts:
+packages/carbon-web-components/src/components/pagination/pagination.ts:
+packages/carbon-web-components/src/components/popover/popover.ts:
+packages/carbon-web-components/src/components/progress-indicator/progress-step.ts:
+packages/carbon-web-components/src/components/search/search.ts:
+packages/carbon-web-components/src/components/select/select.ts:
+packages/carbon-web-components/src/components/slider/slider.ts:
+packages/carbon-web-components/src/components/text-input/text-input.ts:
+packages/carbon-web-components/src/components/textarea/textarea.ts:
+packages/carbon-web-components/src/components/tile/expandable-tile.ts:
+packages/carbon-web-components/src/components/tile/tile-group.ts:
+packages/carbon-web-components/src/components/toggle-tip/toggletip.ts:
