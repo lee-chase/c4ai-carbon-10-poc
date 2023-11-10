@@ -11,6 +11,7 @@ import { ExampleCarbon } from './ExampleCarbon/ExampleCarbon';
 import { ThemeProvider } from './ThemeSelector/ThemeContext';
 import { ThemeDropdown } from './ThemeSelector/ThemeDropdown';
 import { ExampleCWC } from './ExampleCWC/ExampleCWC';
+import { ExampleCWCLitReact } from './ExampleCWCLitReact/ExampleCWCLitReact';
 
 render(
   <ThemeProvider>
@@ -20,6 +21,7 @@ render(
         <ExampleC4P />
         <ExampleCarbon />
         <ExampleCWC />
+        <ExampleCWCLitReact />
       </div>
       <ThemeDropdown />
     </div>

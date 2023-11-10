@@ -8,6 +8,7 @@
     "@carbon/ibm-products": "^1",
     "@carbon/icons-react": "^10",
     "@carbon/web-components": "^2.0.1",
+    "@lit/react": "^1.0.1",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "^12",
     "@testing-library/user-event": "latest",

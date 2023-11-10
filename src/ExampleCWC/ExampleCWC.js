@@ -1,6 +1,6 @@
 // cspell:words grafana
 
-import React from 'react';
+import React, { useState } from 'react';
 
 // ----------------------------------------------------
 // This is an ExampleC4P showing use of the
@@ -55,7 +55,7 @@ export const ExampleCWC = () => {
 
   const numberInputProps = {
     class: 'some-class',
-    id: 'number-input-1',
+    id: 'cwc-number-input-1',
     label: 'Number Input',
     min: 0,
     max: 100,
@@ -108,20 +108,20 @@ export const ExampleCWC = () => {
 
   const TextInputProps = {
     // class: 'some-class',
-    id: 'test2',
+    id: 'cwc-test2',
     label: 'Text Input label',
     placeholder: 'Placeholder text',
   };
 
   const PasswordProps = {
     class: 'some-class',
-    id: 'test3',
+    id: 'cwc-test3',
     label: 'Password',
   };
 
   const InvalidPasswordProps = {
     class: 'some-class',
-    id: 'test4',
+    id: 'cwc-test4',
     label: 'Password',
     invalid: true,
     'invalid-text':
@@ -132,13 +132,19 @@ export const ExampleCWC = () => {
     label: 'Text Area label',
     class: 'some-class',
     placeholder: 'Placeholder text',
-    id: 'test5',
+    id: 'cwc-test5',
     cols: 50,
     rows: 4,
   };
 
   const buttonEvents = {
     class: 'some-class',
+  };
+
+  const [ddValue, setDdValue] = useState('none');
+
+  const handleDDChange = (value) => {
+    console.log(value);
   };
 
   return (
@@ -148,20 +154,27 @@ export const ExampleCWC = () => {
         <form>
           <CDSStack gap={7}>
             <CDSFormGroup {...fieldsetCheckboxProps}>
-              <CDSCheckbox defaultChecked {...checkboxEvents} id='checkbox-0' />
-              <CDSCheckbox {...checkboxEvents} id='checkbox-1' />
-              <CDSCheckbox disabled {...checkboxEvents} id='checkbox-2' />
+              <CDSCheckbox
+                defaultChecked
+                {...checkboxEvents}
+                id='cwc-checkbox-0'
+              />
+              <CDSCheckbox {...checkboxEvents} id='cwc-checkbox-1' />
+              <CDSCheckbox disabled {...checkboxEvents} id='cwc-checkbox-2' />
             </CDSFormGroup>
 
             <CDSNumberInput {...numberInputProps} />
 
             <CDSFormGroup {...fieldsetToggleProps}>
-              <CDSToggle {...toggleProps} id='toggle-1' />
-              <CDSToggle disabled {...toggleProps} id='toggle-2' />
+              <CDSToggle {...toggleProps} id='cwc-toggle-1' />
+              <CDSToggle disabled {...toggleProps} id='cwc-toggle-2' />
             </CDSFormGroup>
 
             <CDSFormGroup {...fieldsetFileUploaderProps}>
-              <CDSFileUploader id='file-1' label-description='Choose Files...'>
+              <CDSFileUploader
+                id='cwc-file-1'
+                label-description='Choose Files...'
+              >
                 <CDSFileUploaderButton class={fileUploaderEvents.class}>
                   {fileUploaderEvents['label-text']}
                 </CDSFileUploaderButton>
@@ -176,26 +189,26 @@ export const ExampleCWC = () => {
               >
                 <CDSRadioButton
                   value='standard'
-                  id='radio-1'
+                  id='cwc-radio-1'
                   label-text='Standard Radio Button'
                   {...radioProps}
                 />
                 <CDSRadioButton
                   value='default-selected'
                   label-text='Default Selected Radio Button'
-                  id='radio-2'
+                  id='cwc-radio-2'
                   {...radioProps}
                 />
                 <CDSRadioButton
                   value='blue'
                   label-text='Standard Radio Button'
-                  id='radio-3'
+                  id='cwc-radio-3'
                   {...radioProps}
                 />
                 <CDSRadioButton
                   value='disabled'
                   label-text='Disabled Radio Button'
-                  id='radio-4'
+                  id='cwc-radio-4'
                   disabled
                   {...radioProps}
                 />
@@ -203,12 +216,20 @@ export const ExampleCWC = () => {
             </CDSFormGroup>
 
             <CDSFormGroup {...fieldsetSearchProps}>
-              <CDSSearch {...searchProps} id='search-1' placeholder='Search'>
+              <CDSSearch
+                {...searchProps}
+                id='cwc-search-1'
+                placeholder='Search'
+              >
                 <div slot='label-text'>Search asdf</div>
               </CDSSearch>
             </CDSFormGroup>
 
-            <CDSSelect {...selectProps} id='select-1' value='placeholder-item'>
+            <CDSSelect
+              {...selectProps}
+              id='cwc-select-1'
+              value='placeholder-item'
+            >
               <CDSSelectItem disabled hidden value='placeholder-item'>
                 Choose an option
               </CDSSelectItem>
@@ -241,7 +262,7 @@ export const ExampleCWC = () => {
 
             <br />
 
-            <CDSDropdown value='none'>
+            <CDSDropdown value={ddValue} onSelect={handleDDChange}>
               <div slot='title-text'>This is a slotted title *1</div>
               <div slot='helper-text'>This is a slotted helper text *1</div>
               <CDSDropdownItem value='none' disabled={true}>
