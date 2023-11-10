@@ -59,7 +59,7 @@ export const ExampleC4P = () => {
 
   return (
     <div className='container'>
-      <h2>This is Carbon for IBM Products V1 </h2>
+      <h2>Carbon(10) for IBM Products V1</h2>
       <OptionsTile
         heading='Auto recovery'
         summary={summary}

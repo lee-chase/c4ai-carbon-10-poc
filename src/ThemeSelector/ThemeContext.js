@@ -3,19 +3,19 @@ import React, { createContext, useReducer } from 'react';
 export const themeData = [
   {
     text: 'White',
-    value: 'carbon-theme--white',
+    value: 'carbon-theme--white cds-theme-zone-white',
   },
   {
     text: 'Gray 10',
-    value: 'carbon-theme--g10',
+    value: 'carbon-theme--g10 cds-theme-zone-g10',
   },
   {
     text: 'Gray 90',
-    value: 'carbon-theme--g90',
+    value: 'carbon-theme--g90 cds-theme-zone-g90',
   },
   {
     text: 'Gray 100',
-    value: 'carbon-theme--g100',
+    value: 'carbon-theme--g100 cds-theme-zone-g100',
   },
 ];
 
@@ -26,18 +26,10 @@ const initialState = {
 };
 
 const themeReducer = (state, action) => {
-  switch (action.type.value) {
-    case 'carbon-theme--white':
-      return { currentTheme: action.type };
-    case 'carbon-theme--g10':
-      return { currentTheme: action.type };
-    case 'carbon-theme--g90':
-      return { currentTheme: action.type };
-    case 'carbon-theme--g100':
-      return { currentTheme: action.type };
-    default:
-      return state;
+  if (themeData.find((td) => td.value === action.type.value)) {
+    return { currentTheme: action.type };
   }
+  return state;
 };
 
 export function ThemeProvider(props) {

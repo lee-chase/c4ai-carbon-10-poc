@@ -27,12 +27,13 @@ import CDSSelectItem from '@carbon/web-components/es/components-react/select/sel
 import CDSTextInput from '@carbon/web-components/es/components-react/text-input/text-input.js';
 import CDSToggle from '@carbon/web-components/es/components-react/toggle/toggle.js';
 import CDSTextArea from '@carbon/web-components/es/components-react/textarea/textarea.js';
+import CDSStack from '@carbon/web-components/es/components-react/stack/stack.js';
 
 import './_example-cwc.scss';
 
 export const ExampleCWC = () => {
   const additionalProps = {
-    className: 'some-class',
+    class: 'some-class',
     onSubmit: (e) => {
       e.preventDefault();
       console.log('FormSubmitted');
@@ -40,17 +41,17 @@ export const ExampleCWC = () => {
   };
 
   const checkboxEvents = {
-    className: 'some-class',
+    class: 'some-class',
     'label-text': 'Checkbox label',
   };
 
-  const fieldsetCheckboxProps = () => ({
-    class: 'some-class',
+  const fieldsetCheckboxProps = {
+    class: 'cds--fieldset',
     'legend-text': 'Checkbox heading',
     message: false,
     'message-text': '',
     invalid: false,
-  });
+  };
 
   const numberInputProps = {
     class: 'some-class',
@@ -106,7 +107,7 @@ export const ExampleCWC = () => {
   };
 
   const TextInputProps = {
-    class: 'some-class',
+    // class: 'some-class',
     id: 'test2',
     label: 'Text Input label',
     placeholder: 'Placeholder text',
@@ -137,132 +138,133 @@ export const ExampleCWC = () => {
   };
 
   const buttonEvents = {
-    className: 'some-class',
+    class: 'some-class',
   };
 
   return (
     <div>
-      <h2>This is Carbon Web Components V2</h2>
-      <h3>Example</h3>
+      <h2>Carbon Web Components V2</h2>
       <div>
         <form>
-          <CDSFormGroup {...fieldsetCheckboxProps}>
-            <CDSCheckbox defaultChecked {...checkboxEvents} id='checkbox-0' />
-            <CDSCheckbox {...checkboxEvents} id='checkbox-1' />
-            <CDSCheckbox disabled {...checkboxEvents} id='checkbox-2' />
-          </CDSFormGroup>
+          <CDSStack gap={7}>
+            <CDSFormGroup {...fieldsetCheckboxProps}>
+              <CDSCheckbox defaultChecked {...checkboxEvents} id='checkbox-0' />
+              <CDSCheckbox {...checkboxEvents} id='checkbox-1' />
+              <CDSCheckbox disabled {...checkboxEvents} id='checkbox-2' />
+            </CDSFormGroup>
 
-          <CDSNumberInput {...numberInputProps} />
+            <CDSNumberInput {...numberInputProps} />
 
-          <CDSFormGroup {...fieldsetToggleProps}>
-            <CDSToggle {...toggleProps} id='toggle-1' />
-            <CDSToggle disabled {...toggleProps} id='toggle-2' />
-          </CDSFormGroup>
+            <CDSFormGroup {...fieldsetToggleProps}>
+              <CDSToggle {...toggleProps} id='toggle-1' />
+              <CDSToggle disabled {...toggleProps} id='toggle-2' />
+            </CDSFormGroup>
 
-          <CDSFormGroup {...fieldsetFileUploaderProps}>
-            <CDSFileUploader id='file-1' label-description='Choose Files...'>
-              <CDSFileUploaderButton class={fileUploaderEvents.class}>
-                {fileUploaderEvents['label-text']}
-              </CDSFileUploaderButton>
-            </CDSFileUploader>
-          </CDSFormGroup>
+            <CDSFormGroup {...fieldsetFileUploaderProps}>
+              <CDSFileUploader id='file-1' label-description='Choose Files...'>
+                <CDSFileUploaderButton class={fileUploaderEvents.class}>
+                  {fileUploaderEvents['label-text']}
+                </CDSFileUploaderButton>
+              </CDSFileUploader>
+            </CDSFormGroup>
 
-          <CDSFormGroup {...fieldsetRadioProps}>
-            <CDSRadioButtonGroup
-              onChange={() => console.log('onChange')}
-              name='radio-button-group'
-              defaultSelected='default-selected'
-            >
-              <CDSRadioButton
-                value='standard'
-                id='radio-1'
-                label-text='Standard Radio Button'
-                {...radioProps}
-              />
-              <CDSRadioButton
-                value='default-selected'
-                label-text='Default Selected Radio Button'
-                id='radio-2'
-                {...radioProps}
-              />
-              <CDSRadioButton
-                value='blue'
-                label-text='Standard Radio Button'
-                id='radio-3'
-                {...radioProps}
-              />
-              <CDSRadioButton
-                value='disabled'
-                label-text='Disabled Radio Button'
-                id='radio-4'
-                disabled
-                {...radioProps}
-              />
-            </CDSRadioButtonGroup>
-          </CDSFormGroup>
+            <CDSFormGroup {...fieldsetRadioProps}>
+              <CDSRadioButtonGroup
+                onChange={() => console.log('onChange')}
+                name='radio-button-group'
+                defaultSelected='default-selected'
+              >
+                <CDSRadioButton
+                  value='standard'
+                  id='radio-1'
+                  label-text='Standard Radio Button'
+                  {...radioProps}
+                />
+                <CDSRadioButton
+                  value='default-selected'
+                  label-text='Default Selected Radio Button'
+                  id='radio-2'
+                  {...radioProps}
+                />
+                <CDSRadioButton
+                  value='blue'
+                  label-text='Standard Radio Button'
+                  id='radio-3'
+                  {...radioProps}
+                />
+                <CDSRadioButton
+                  value='disabled'
+                  label-text='Disabled Radio Button'
+                  id='radio-4'
+                  disabled
+                  {...radioProps}
+                />
+              </CDSRadioButtonGroup>
+            </CDSFormGroup>
 
-          <CDSFormGroup {...fieldsetSearchProps}>
-            <CDSSearch {...searchProps} id='search-1' placeholder='Search'>
-              <div slot='label-text'>Search asdf</div>
-            </CDSSearch>
-          </CDSFormGroup>
+            <CDSFormGroup {...fieldsetSearchProps}>
+              <CDSSearch {...searchProps} id='search-1' placeholder='Search'>
+                <div slot='label-text'>Search asdf</div>
+              </CDSSearch>
+            </CDSFormGroup>
 
-          <CDSSelect {...selectProps} id='select-1' value='placeholder-item'>
-            <CDSSelectItem disabled hidden value='placeholder-item'>
-              Choose an option
-            </CDSSelectItem>
-            <CDSSelectItem value='option-1'>Option 1</CDSSelectItem>
-            <CDSSelectItem value='option-2'>Option 2</CDSSelectItem>
-            <CDSSelectItem value='option-3'>Option 3</CDSSelectItem>
-          </CDSSelect>
+            <CDSSelect {...selectProps} id='select-1' value='placeholder-item'>
+              <CDSSelectItem disabled hidden value='placeholder-item'>
+                Choose an option
+              </CDSSelectItem>
+              <CDSSelectItem value='option-1'>Option 1</CDSSelectItem>
+              <CDSSelectItem value='option-2'>Option 2</CDSSelectItem>
+              <CDSSelectItem value='option-3'>Option 3</CDSSelectItem>
+            </CDSSelect>
 
-          <CDSTextInput {...TextInputProps} />
+            <CDSTextInput {...TextInputProps} />
 
-          <CDSTextInput
-            type='password'
-            required
-            pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
-            {...PasswordProps}
-          />
+            <CDSTextInput
+              type='password'
+              required
+              pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
+              {...PasswordProps}
+            />
 
-          <CDSTextInput
-            type='password'
-            required
-            pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
-            {...InvalidPasswordProps}
-          />
+            <CDSTextInput
+              type='password'
+              required
+              pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}'
+              {...InvalidPasswordProps}
+            />
 
-          <CDSTextArea {...textareaProps} />
+            <CDSTextArea {...textareaProps} />
 
-          <CDSButton type='submit' className='some-class' {...buttonEvents}>
-            Submit
-          </CDSButton>
+            <CDSButton type='submit' class='some-class' {...buttonEvents}>
+              Submit
+            </CDSButton>
 
-          <br />
+            <br />
 
-          <CDSDropdown value='none'>
-            <div slot='title-text'>This is a slotted title *1</div>
-            <div slot='helper-text'>This is a slotted helper text *1</div>
-            <CDSDropdownItem value='none' disabled={true}>
-              Make a selection
-            </CDSDropdownItem>
-            <CDSDropdownItem value='all'>Option 1</CDSDropdownItem>
-            <CDSDropdownItem value='cloudFoundry'>Option 2</CDSDropdownItem>
-            <CDSDropdownItem value='staging'>Option 3</CDSDropdownItem>
-            <CDSDropdownItem value='dea'>Option 4</CDSDropdownItem>
-            <CDSDropdownItem value='router'>Option 5</CDSDropdownItem>
-          </CDSDropdown>
+            <CDSDropdown value='none'>
+              <div slot='title-text'>This is a slotted title *1</div>
+              <div slot='helper-text'>This is a slotted helper text *1</div>
+              <CDSDropdownItem value='none' disabled={true}>
+                Make a selection
+              </CDSDropdownItem>
+              <CDSDropdownItem value='all'>Option 1</CDSDropdownItem>
+              <CDSDropdownItem value='cloudFoundry'>Option 2</CDSDropdownItem>
+              <CDSDropdownItem value='staging'>Option 3</CDSDropdownItem>
+              <CDSDropdownItem value='dea'>Option 4</CDSDropdownItem>
+              <CDSDropdownItem value='router'>Option 5</CDSDropdownItem>
+            </CDSDropdown>
+          </CDSStack>
         </form>
       </div>
       <h3>Notes</h3>
       <CDSOrderedList>
-        <CDSListItem class='warning'>
+        <CDSListItem class='error'>
           &gt;CDSOrdered list appears to have no numbering, some CSS is missing
         </CDSListItem>
         <CDSListItem class='warning'>
-          &gt;The dropdown has no background color
+          &gt;body/root class needed for both 10 & 11 themes
         </CDSListItem>
-        <CDSListItem className='warning'>
+        <CDSListItem class='warning'>
           &gt;Does not accept `className`
         </CDSListItem>
         <CDSListItem class='warning'>
@@ -278,6 +280,10 @@ export const ExampleCWC = () => {
           blank by default)
         </CDSListItem>
         <CDSListItem>&gt;There is no CDSForm</CDSListItem>
+        <CDSListItem class='error'>&gt;CDSStack has not working</CDSListItem>
+        <CDSListItem class='warning'>
+          &gt;Use of CDN to import Carbon 11 styles
+        </CDSListItem>
       </CDSOrderedList>
     </div>
   );

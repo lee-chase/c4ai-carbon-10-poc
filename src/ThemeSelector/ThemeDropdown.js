@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Dropdown } from 'carbon-components-react';
 import { ThemeContext, themeData } from './ThemeContext';
 
@@ -13,18 +13,22 @@ export const ThemeDropdown = () => {
     theme.dispatch({ type: selectedItem });
   };
 
+  useEffect(() => {
+    setTheme(theme.state.currentTheme);
+  }, []);
+
   return (
-    <div className="carbon-theme-dropdown">
+    <div className='carbon-theme-dropdown'>
       <Dropdown
-        direction="top"
-        ariaLabel="Theme dropdown"
-        id="theme-dropdown"
+        direction='top'
+        ariaLabel='Theme dropdown'
+        id='theme-dropdown'
         items={themeData}
         itemToString={(item) => (item ? item.text : '')}
         onChange={(event) => setTheme(event.selectedItem)}
         selectedItem={theme.state.currentTheme}
-        label="Select a Carbon theme"
-        titleText="Select a Carbon theme"
+        label='Select a Carbon theme'
+        titleText='Select a Carbon theme'
       />
     </div>
   );

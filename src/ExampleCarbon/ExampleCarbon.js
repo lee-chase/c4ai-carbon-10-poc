@@ -137,7 +137,7 @@ export const ExampleCarbon = () => {
 
   return (
     <div>
-      <h2>This is Carbon</h2>
+      <h2>Carbon 10 (Carbon React 7)</h2>
       <div>
         <Form {...additionalProps}>
           <FormGroup {...fieldsetCheckboxProps()}>
