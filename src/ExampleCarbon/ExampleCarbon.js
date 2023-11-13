@@ -51,7 +51,7 @@ export const ExampleCarbon = () => {
 
   const numberInputProps = {
     className: 'some-class',
-    id: 'number-input-1',
+    id: 'carbon-number-input-1',
     label: 'Number Input',
     min: 0,
     max: 100,
@@ -102,20 +102,20 @@ export const ExampleCarbon = () => {
 
   const TextInputProps = {
     className: 'some-class',
-    id: 'test2',
+    id: 'carbon-test2',
     labelText: 'Text Input label',
     placeholder: 'Placeholder text',
   };
 
   const PasswordProps = {
     className: 'some-class',
-    id: 'test3',
+    id: 'carbon-test3',
     labelText: 'Password',
   };
 
   const InvalidPasswordProps = {
     className: 'some-class',
-    id: 'test4',
+    id: 'carbon-test4',
     labelText: 'Password',
     invalid: true,
     invalidText:
@@ -126,7 +126,7 @@ export const ExampleCarbon = () => {
     labelText: 'Text Area label',
     className: 'some-class',
     placeholder: 'Placeholder text',
-    id: 'test5',
+    id: 'carbon-test5',
     cols: 50,
     rows: 4,
   };
@@ -141,22 +141,26 @@ export const ExampleCarbon = () => {
       <div>
         <Form {...additionalProps}>
           <FormGroup {...fieldsetCheckboxProps()}>
-            <Checkbox defaultChecked {...checkboxEvents} id='checkbox-0' />
-            <Checkbox {...checkboxEvents} id='checkbox-1' />
-            <Checkbox disabled {...checkboxEvents} id='checkbox-2' />
+            <Checkbox
+              defaultChecked
+              {...checkboxEvents}
+              id='carbon-checkbox-0'
+            />
+            <Checkbox {...checkboxEvents} id='carbon-checkbox-1' />
+            <Checkbox disabled {...checkboxEvents} id='carbon-checkbox-2' />
           </FormGroup>
 
           <NumberInput {...numberInputProps} />
 
           <FormGroup {...fieldsetToggleProps}>
-            <Toggle {...toggleProps} id='toggle-1' />
-            <Toggle disabled {...toggleProps} id='toggle-2' />
+            <Toggle {...toggleProps} id='carbon-toggle-1' />
+            <Toggle disabled {...toggleProps} id='carbon-toggle-2' />
           </FormGroup>
 
           <FormGroup {...fieldsetFileUploaderProps}>
             <FileUploader
               {...fileUploaderEvents}
-              id='file-1'
+              id='carbon-file-1'
               labelDescription='Choose Files...'
             />
           </FormGroup>
@@ -169,26 +173,26 @@ export const ExampleCarbon = () => {
             >
               <RadioButton
                 value='standard'
-                id='radio-1'
+                id='carbon-radio-1'
                 labelText='Standard Radio Button'
                 {...radioProps}
               />
               <RadioButton
                 value='default-selected'
                 labelText='Default Selected Radio Button'
-                id='radio-2'
+                id='carbon-radio-2'
                 {...radioProps}
               />
               <RadioButton
                 value='blue'
                 labelText='Standard Radio Button'
-                id='radio-3'
+                id='carbon-radio-3'
                 {...radioProps}
               />
               <RadioButton
                 value='disabled'
                 labelText='Disabled Radio Button'
-                id='radio-4'
+                id='carbon-radio-4'
                 disabled
                 {...radioProps}
               />
@@ -198,7 +202,7 @@ export const ExampleCarbon = () => {
           <FormGroup {...fieldsetSearchProps}>
             <Search
               {...searchProps}
-              id='search-1'
+              id='carbon-search-1'
               labelText='Search'
               placeholder='Search'
             />
@@ -206,7 +210,7 @@ export const ExampleCarbon = () => {
 
           <Select
             {...selectProps}
-            id='select-1'
+            id='carbon-select-1'
             defaultValue='placeholder-item'
           >
             <SelectItem

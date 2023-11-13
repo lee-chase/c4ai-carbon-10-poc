@@ -305,6 +305,14 @@ export const ExampleCWC = () => {
         <CDSListItem class='warning'>
           &gt;Use of CDN to import Carbon 11 styles
         </CDSListItem>
+        <CDSListItem class='warning'>
+          &gt;Some styling is off e.g. button (100% width)
+        </CDSListItem>
+        <CDSListItem class='warning'>&gt;Select missing a label</CDSListItem>
+        <CDSListItem class='warning'>
+          &gt;Chrome dev tools is complaining about duplicate IDs which appear
+          to be in shadow-dom.
+        </CDSListItem>
       </CDSOrderedList>
     </div>
   );
